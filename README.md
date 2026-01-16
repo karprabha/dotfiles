@@ -17,7 +17,6 @@ cd ~/dotfiles
 ## Notes
 
 * Vim undo history is stored in `vim/undo/`.
-* Themes/plugins can be installed in `vim/pack/themes/start/`.
 * Add your own configs in respective folders and update `install.sh` for symlinks.
 
 

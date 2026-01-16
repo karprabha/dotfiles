@@ -1,4 +1,3 @@
-````markdown
 # Dotfiles
 
 This repository contains my personal configuration files.
@@ -9,7 +8,7 @@ This repository contains my personal configuration files.
 git clone https://github.com/karprabha/dotfiles.git ~/dotfiles
 cd ~/dotfiles
 ./install.sh
-````
+```
 
 ## Structure
 

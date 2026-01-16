@@ -1,0 +1,41 @@
+" -------- Basics --------
+set nowrap
+set nobackup
+set noswapfile
+set t_Co=256
+set background=dark
+syntax enable
+colorscheme gruvbox
+set hlsearch
+set number
+set relativenumber        " Relative line numbers
+set cursorline            " Highlight current line
+
+" -------- Undo across sessions --------
+set undofile
+set undolevels=800
+set undodir=~/dotfiles/vim/undo//
+
+" -------- Indentation --------
+set expandtab
+set shiftwidth=4
+set smarttab
+set autoindent
+
+" -------- Clipboard shortcuts (macOS) --------
+nmap <F2> :.w !pbcopy<CR><CR>
+vmap <F2> :w !pbcopy<CR><CR>
+
+" -------- GitHub Copilot --------
+imap <C-]> <Plug>(copilot-next)
+
+" -------- True color --------
+if has("termguicolors")
+    set termguicolors
+endif
+
+" -------- Filetype detection --------
+au BufRead,BufNewFile *.md  set filetype=markdown
+au BufRead,BufNewFile *.clj set filetype=clojure
+au BufRead,BufNewFile *.vue set filetype=html
+

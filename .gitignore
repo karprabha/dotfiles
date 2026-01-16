@@ -1,0 +1,6 @@
+# Vim undo files
+vim/undo/*
+
+# Vim packages (themes/plugins installed manually)
+vim/pack/*
+

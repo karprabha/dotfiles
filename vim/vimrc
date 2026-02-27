@@ -14,7 +14,7 @@ set cursorline            " Highlight current line
 " -------- Undo across sessions --------
 set undofile
 set undolevels=800
-set undodir=~/dotfiles/vim/undo//
+set undodir=~/.vim/undo//
 
 " -------- Indentation --------
 set expandtab

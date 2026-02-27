@@ -1,56 +1,64 @@
 #!/bin/bash
-# Bootstrap script for dotfiles
-# This will setup Vim, symlinks, and color theme
+# Symlink manager for dotfiles (idempotent, standalone)
 
-# -----------------------------
-# Function to create symlink
-# -----------------------------
+set -e
+
+DOTFILES_DIR="$(cd "$(dirname "$0")" && pwd)"
+
+# --- Symlink helper ---
 link_file() {
-    src=$1
-    dest=$2
-    if [ -e "$dest" ]; then
-        echo "Backing up existing file: $dest -> ${dest}.backup"
-        mv "$dest" "${dest}.backup"
+    local src="$1"
+    local dest="$2"
+
+    if [ -L "$dest" ] && [ "$(readlink "$dest")" = "$src" ]; then
+        echo "Already linked: $dest"
+        return
     fi
-    echo "Linking $src -> $dest"
+
+    if [ -e "$dest" ] || [ -L "$dest" ]; then
+        local backup="${dest}.backup.$(date +%Y%m%d%H%M%S)"
+        echo "Backing up: $dest -> $backup"
+        mv "$dest" "$backup"
+    fi
+
+    mkdir -p "$(dirname "$dest")"
     ln -sf "$src" "$dest"
+    echo "Linked: $src -> $dest"
 }
 
-# -----------------------------
-# Setup Vim
-# -----------------------------
+# --- Vim ---
 echo "Setting up Vim..."
-
-# Create undo directory if not exists
 mkdir -p ~/.vim/undo
 
-# Symlink vimrc
-link_file "$PWD/vim/vimrc" ~/.vimrc
+link_file "$DOTFILES_DIR/vim/vimrc" ~/.vimrc
 
-# -----------------------------
-# Install Gruvbox color theme
-# -----------------------------
 THEME_DIR="$HOME/.vim/pack/themes/start/gruvbox"
-
 if [ ! -d "$THEME_DIR" ]; then
     echo "Installing Gruvbox color theme..."
     mkdir -p "$(dirname "$THEME_DIR")"
     git clone https://github.com/morhetz/gruvbox.git "$THEME_DIR"
 else
-    echo "Gruvbox already installed, pulling latest changes..."
-    cd "$THEME_DIR" && git pull origin master
+    echo "Gruvbox already installed."
 fi
 
-echo "Vim setup complete!"
-
-# -----------------------------
-# Setup Ghostty
-# -----------------------------
+# --- Ghostty ---
 echo "Setting up Ghostty..."
+link_file "$DOTFILES_DIR/ghostty/config" ~/.config/ghostty/config
 
-mkdir -p ~/.config/ghostty
+# --- Zsh ---
+echo "Setting up Zsh..."
+link_file "$DOTFILES_DIR/zsh/zshrc" ~/.zshrc
 
-link_file "$PWD/ghostty/config" ~/.config/ghostty/config
+# --- Git ---
+echo "Setting up Git..."
+link_file "$DOTFILES_DIR/git/gitconfig" ~/.gitconfig
+link_file "$DOTFILES_DIR/git/gitconfig-work" ~/.gitconfig-work
+link_file "$DOTFILES_DIR/git/gitignore_global" ~/.gitignore_global
 
-echo "Ghostty setup complete!"
+# --- SSH ---
+echo "Setting up SSH..."
+mkdir -p ~/.ssh && chmod 700 ~/.ssh
+link_file "$DOTFILES_DIR/ssh/config" ~/.ssh/config
 
+echo ""
+echo "All symlinks installed!"

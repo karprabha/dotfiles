@@ -1,0 +1,18 @@
+[user]
+	name = Prabhakar Yadav
+	email = developer.prabhakaryadav@gmail.com
+
+[init]
+	defaultBranch = main
+
+[core]
+	excludesfile = ~/.gitignore_global
+
+[pull]
+	rebase = true
+
+[includeIf "gitdir:~/workspace/github.com/againstdata/"]
+	path = ~/.gitconfig-work
+
+[include]
+	path = ~/.gitconfig.local

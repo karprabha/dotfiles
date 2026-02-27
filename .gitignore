@@ -1,6 +1,16 @@
-# Vim undo files
+# Vim
 vim/undo/*
-
-# Vim packages (themes/plugins installed manually)
 vim/pack/*
 
+# Brew lockfile
+Brewfile.lock.json
+
+# SSH keys (safety net)
+ssh/id_*
+ssh/*.pem
+
+# Claude
+.claude/
+
+# OS
+.DS_Store

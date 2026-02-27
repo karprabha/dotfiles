@@ -1,0 +1,38 @@
+# Personal Github
+Host github.com
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/github/id_ed25519
+  UseKeychain yes
+  AddKeysToAgent yes
+  IdentitiesOnly yes
+
+# Work Github (custom host alias)
+Host github-work
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/github/id_ed25519_work
+  UseKeychain yes
+  AddKeysToAgent yes
+  IdentitiesOnly yes
+
+# dad-aws-sql
+Host dad-aws-sql
+  HostName 3.124.217.96
+  User forge
+  Port 22
+  IdentityFile ~/.ssh/forge/id_ed25519_sql
+
+# dad-aws-web
+Host dad-aws-web
+  HostName 18.193.224.8
+  User forge
+  Port 22
+  IdentityFile ~/.ssh/forge/id_ed25519_web
+
+# dad-aws-worker2
+Host dad-aws-worker2
+  HostName 3.67.207.213
+  User forge
+  Port 22
+  IdentityFile ~/.ssh/forge/id_ed25519_worker

@@ -39,8 +39,8 @@ palette = 14=#60fdff
 palette = 15=#ffffff
 
 # --- Window ---
-window-width = 79
-window-height = 24
+window-width = 80
+window-height = 25
 window-padding-x = 2
 window-padding-y = 0
 window-padding-balance = true
@@ -48,12 +48,12 @@ window-decoration = true
 macos-titlebar-style = native
 macos-titlebar-proxy-icon = visible
 
-# --- Transparency & Blur (matches iTerm2: ~21 transparency, blur 18) ---
-background-opacity = 0.82
+# --- Transparency & Blur (matches iTerm2: 21% transparency, blur 18) ---
+background-opacity = 0.79
 background-blur-radius = 18
 
 # --- Scrollback ---
-scrollback-limit = 10000
+scrollback-limit = 1000
 
 # --- Misc ---
 mouse-hide-while-typing = true

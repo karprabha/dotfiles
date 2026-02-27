@@ -42,5 +42,15 @@ else
 fi
 
 echo "Vim setup complete!"
-echo "You can now open Vim and Gruvbox will be available."
+
+# -----------------------------
+# Setup Ghostty
+# -----------------------------
+echo "Setting up Ghostty..."
+
+mkdir -p ~/.config/ghostty
+
+link_file "$PWD/ghostty/config" ~/.config/ghostty/config
+
+echo "Ghostty setup complete!"
 

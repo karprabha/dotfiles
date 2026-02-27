@@ -1,0 +1,63 @@
+# Ghostty Config — iTerm2 exact match
+# Every color value sourced directly from com.googlecode.iterm2.plist
+# Place at: ~/.config/ghostty/config
+
+# --- Font ---
+font-family = "JetBrainsMono Nerd Font Mono"
+font-size = 16
+font-thicken = true
+
+# --- Core Colors ---
+ background = #15191f 
+ foreground = #dcdcdc
+
+# --- Cursor ---
+cursor-color = #ffffff
+cursor-style = block
+cursor-style-blink = false
+
+# --- Selection ---
+selection-background = #b3d7ff
+selection-foreground = #000000
+
+# --- ANSI Palette (exact iTerm2 dark mode values) ---
+palette = 0=#14191e
+palette = 1=#b43c2a
+palette = 2=#00c200
+palette = 3=#c7c400
+palette = 4=#2744c7
+palette = 5=#c040be
+palette = 6=#00c5c7
+palette = 7=#c7c7c7
+palette = 8=#686868
+palette = 9=#dd7975
+palette = 10=#58e790
+palette = 11=#ece100
+palette = 12=#a7abf2
+palette = 13=#e17ee1
+palette = 14=#60fdff
+palette = 15=#ffffff
+
+# --- Window ---
+window-width = 79
+window-height = 24
+window-padding-x = 2
+window-padding-y = 0
+window-padding-balance = true
+window-decoration = true
+macos-titlebar-style = native
+macos-titlebar-proxy-icon = visible
+
+# --- Transparency & Blur (matches iTerm2: ~21 transparency, blur 18) ---
+background-opacity = 0.82
+background-blur-radius = 18
+
+# --- Scrollback ---
+scrollback-limit = 10000
+
+# --- Misc ---
+mouse-hide-while-typing = true
+copy-on-select = false
+confirm-close-surface = false
+font-thicken = true
+

@@ -10,8 +10,8 @@ export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
 export PATH="$PATH:/opt/homebrew/opt/go/libexec/bin"
 export PATH="$PATH:$HOME/go/bin"
 
-# --- Python (pyenv) ---
-eval "$(pyenv init -)"
+# --- Python (uv) ---
+eval "$(uv generate-shell-completion zsh)"
 
 # --- Node (nvm) ---
 export NVM_DIR="$HOME/.nvm"
